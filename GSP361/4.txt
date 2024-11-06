@@ -1,0 +1,7 @@
+datagroup: order_items_challenge_datagroup {
+  sql_trigger: SELECT MAX(order_item_id) from order_items  ;;
+  max_cache_age: "8 hours"
+}
+
+persist_with: order_items_challenge_datagroup
+

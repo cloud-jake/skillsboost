@@ -1,0 +1,15 @@
+  always_filter: {
+    filters: [order_items.sale_price: ">=241" ]
+  }
+
+  #  sql_always_having: order_items.sale_price: ">=241"  ;;
+  conditionally_filter: {
+    filters: [order_items.shipped_date: "2018"]
+    unless: [order_items.status,order_items.delivered_date]
+  }
+
+  always_filter: {
+    filters: [order_items.status: "Shipped",users.state: "California",users.traffic_source: "Search"]
+  }
+  
+  

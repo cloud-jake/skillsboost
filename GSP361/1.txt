@@ -1,0 +1,23 @@
+  dimension: is_search_source {
+    type:  yesno
+    sql: ${users.traffic_source} = "Search" ;;
+  }
+  
+  measure: sales_from_complete_search_users {
+    type: sum
+    sql: ${TABLE}.sale_price ;;
+    filters: [status: "Complete",is_search_source: "Yes"]
+    value_format_name: usd
+  }
+
+  measure: total_gross_margin {
+    type: sum
+    sql: ${TABLE}.sale_price - ${inventory_items.cost} ;;
+    value_format_name: usd
+  }
+  
+  dimension: return_days {
+    type:  number
+    sql: DATE_DIFF(${delivered_date},${returned_date},DAY ;;
+    
+  }
